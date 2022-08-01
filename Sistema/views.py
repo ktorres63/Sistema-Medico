@@ -5,6 +5,8 @@ from .models import *
 def loginView(request):
     return render(request,"login.html")
 
+def HomeView(request):
+    return render(request,"tempBase.html")
 
 class MedicoListView(ListView):
     model = Medico

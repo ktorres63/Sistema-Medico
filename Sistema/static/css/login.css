@@ -17,9 +17,10 @@ body {
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
 }
+
 @media screen and (max-width: 450px) {
     .login-form{
-        margin-top: 0%;
+        margin-top: 10%;
     }
     .register-form{
         margin-top: 10%;
@@ -29,6 +30,7 @@ body {
     .main{
         margin-left: 40%;
     }
+
     .sidenav{
         width: 40%;
         position: fixed;
@@ -54,7 +56,6 @@ body {
 .login-main-text h2{
     font-weight: 300;
 }
-
 .btn-black{
     background-color: #000 !important;
     color: #fff;
