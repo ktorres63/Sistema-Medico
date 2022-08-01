@@ -3,7 +3,7 @@ from django.views.generic import ListView
 from .models import *
 
 def loginView(request):
-    return render(request,"tempBase.html")
+    return render(request,"login.html")
 
 
 class MedicoListView(ListView):

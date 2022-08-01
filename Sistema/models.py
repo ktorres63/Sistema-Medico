@@ -13,7 +13,7 @@ class Paciente(models.Model):
     apPat= models.CharField(max_length = 20)
     telf = models.CharField(max_length = 6)
     edad = models.IntegerField()
-    dir = models.CharField(max_length = 6)
+    dir = models.CharField(max_length = 30)
     fechNac = models.DateField()
 
 class Jefe(models.Model):
