@@ -4,14 +4,39 @@
         <h2>Nuevo Paciente</h2>
         <div class = "card">
             <div class = "card-body">
-                <form  action="registrarCurso/" method="POST"> {% csrf_token %}
+                <form  action="registroPaciente/" method="POST"> {% csrf_token %}
                     <div class="mb-1">
-                        <label for="exampleInputEmail1" class="form-label">DNI</label>
+                        <label class="form-label">DNI</label>
                         <input type="text" class="form-control" id="dniPac" name="dniPac" minlength="8" maxlength="8">
                     </div>
                     <div class="mb-1">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-control" name="nombPac" minlength="2" maxlength="20">
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-label">Apellido Paterno</label>
+                        <input type="text" class="form-control" name="apellPaPac" minlength="2" maxlength="20">
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-label">Apellido Materno</label>
+                        <input type="text" class="form-control" name="apellMaPac" minlength="2" maxlength="20">
+                    </div>
+
+                    <div class="mb-1">
+                        <label class="form-label">telefono</label>
+                        <input type="text" class="form-control" name="telfPac" minlength="6" maxlength="9">
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-label">edad</label>
+                        <input type="number" class="form-control" name="edPac" max="110" min="0">
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-label">Direccion</label>
+                        <input type="text" class="form-control" name="dirPac" minlength="2" maxlength="30">
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-label">Fecha de nacimiento</label>
+                        <input type="date" class="form-control" name="nacPac" >
                     </div>
                     <button type="submit" class="btn btn-primary">Crear</button>
                 </form>

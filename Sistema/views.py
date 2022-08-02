@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.generic import ListView
 from .models import *
 
@@ -10,6 +10,29 @@ def HomeView(request):
 
 def NuevoPac(request):
     return render(request,"newPacient.html")
+
+def registrarPaciente(request):
+    dni = request.POST['dniPac']
+    nom = request.POST['nombPac']
+    apP = request.POST['apellPaPac']
+    apM = request.POST['apellMaPac']
+    telf = request.POST['telfPac']
+    edad = request.POST['edPac']
+    dir = request.POST['dirPac']
+    fecNa = request.POST['nacPac']
+
+    paciente = Paciente.objects.create(
+        dni = dni,
+        nombre = nom,
+        apPat = apP,
+        apMat = apM,
+        telf = telf,
+        edad = edad,
+        dir = dir,
+        fechNac = fecNa
+    )
+    return redirect("/home")
+
 
 class MedicoListView(ListView):
     model = Medico
