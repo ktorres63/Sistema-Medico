@@ -6,7 +6,10 @@ def loginView(request):
     return render(request,"login.html")
 
 def HomeView(request):
-    return render(request,"tempBase.html")
+    return render(request,"home.html")
+
+def NuevoPac(request):
+    return render(request,"newPacient.html")
 
 class MedicoListView(ListView):
     model = Medico
