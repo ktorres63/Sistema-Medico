@@ -28,3 +28,4 @@ class Paciente(models.Model):
     edad = models.IntegerField()
     dir = models.CharField(max_length = 30)
     fechNac = models.DateField()
+    medico = models.ForeignKey(Medico, null = True, blank = True, on_delete = models.CASCADE)
