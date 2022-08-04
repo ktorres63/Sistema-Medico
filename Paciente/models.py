@@ -12,3 +12,5 @@ class Paciente(models.Model):
     fechNac = models.DateField()
     medico = models.ForeignKey(Medico, null = True, blank = True, on_delete = models.CASCADE)
 
+    def __str__(self):
+        return "{} {}. {}".format(self.apPat,self.apMat,self.nombre)

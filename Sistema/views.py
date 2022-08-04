@@ -5,7 +5,7 @@ from .models import *
 def loginView(request):
     return render(request,"login.html")
 
-def formatos(request):
+def formatosView(request):
     return render(request,"formatos.html")
 
 def HomeView(request):
