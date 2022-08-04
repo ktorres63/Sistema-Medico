@@ -25,4 +25,4 @@ def RegistroPacienteView(request):
 
 
 def PacienteView(request):
-    return render(request,"newPacient.html")
+    return render(request,"paciente/newPacient.html")
