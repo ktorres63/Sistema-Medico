@@ -5,8 +5,5 @@ from .models import *
 def loginView(request):
     return render(request,"login.html")
 
-def formatosView(request):
-    return render(request,"formatos.html")
-
 def HomeView(request):
     return render(request,"home.html")

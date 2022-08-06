@@ -1,0 +1,35 @@
+
+{% extends "tempBase.html" %}
+{% block content %}
+    <h4 style="color:white">Formatos</h4>
+
+    <div class = 'container-sm'>
+        <form>
+            <div class btn-group>
+                <input type="checkbox" class="btn-check" id="bc1">
+                <label  for="bc1" class="btn btn-outline-success">FUA</label>
+            
+           
+                <input type="checkbox" class="btn-check" id="bc2">
+                <label  for="bc2" class="btn btn-outline-success">Hoja SIS</label>
+          
+          
+                <input type="checkbox" class="btn-check" id="bc3">
+                <label  for="bc3" class="btn btn-outline-success">Receta de farmacia</label>
+          
+           
+                <input type="checkbox" class="btn-check" id="bc4">
+                <label  for="bc4" class="btn btn-outline-success">Otros...</label>
+                
+                <button type="button" class="btn btn-success" style="text-align: center">Siguiente</button>
+              
+                
+            </div>
+        </form>
+    </div>
+    
+    <div class = 'datosMedico'>
+        DATOS DEL MÉDICO
+    </div>
+{% endblock %}
+  
