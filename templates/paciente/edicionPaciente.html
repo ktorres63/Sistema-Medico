@@ -1,0 +1,54 @@
+{% extends "tempBase.html" %}
+{% block title %} edicion Paciente {% endblock %}
+{% block content %}
+    <div class="container text-center">
+        <div class="row d-flex justify-content-center align-center-items">
+           <div class="col-md-4">
+                <h2>Editar Paciente</h2>
+                <div class = "card">
+                    <div class = "card-body">
+                        <form  action="/paciente/editarPaciente/" method="POST"> 
+                            {% csrf_token %}
+                            <div class="mb-1">
+                                <label class="form-label">DNI</label>
+                                <input type="text" class="form-control" value="{{ paciente.dni }}" name="dniPac" minlength="8" maxlength="8" readonly>
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-control" value="{{ paciente.nombre }}" name="nombPac" minlength="2" maxlength="20">
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label">Apellido Paterno</label>
+                                <input type="text" class="form-control" value="{{ paciente.apPat }}" name="apellPaPac" minlength="2" maxlength="20">
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label">Apellido Materno</label>
+                                <input type="text" class="form-control" value="{{ paciente.apMat }}" name="apellMaPac" minlength="2" maxlength="20">
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label">telefono</label>
+                                <input type="text" class="form-control" value="{{ paciente.telf }}" name="telfPac" minlength="6" maxlength="9">
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label">edad</label>
+                                <input type="number" class="form-control" value="{{ paciente.edad }}" name="edPac" max="110" min="0">
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label">Direccion</label>
+                                <input type="text" class="form-control" value="{{ paciente.dir }}" name="dirPac" minlength="2" maxlength="30">
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label">Fecha de nacimiento</label>
+                                <input type="date" class="form-control" value="{{ paciente.fechNac| date:"Y-m-d" }}" name="nacPac" >
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

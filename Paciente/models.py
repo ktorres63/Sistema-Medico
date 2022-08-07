@@ -2,7 +2,7 @@ from django.db import models
 from Medico.models import Medico
 
 class Paciente(models.Model):
-    dni = models.CharField(primary_key = True,max_length = 8)
+    dni = models.CharField(primary_key = True,max_length = 8, unique=True)
     nombre = models.CharField(max_length = 20)
     apPat= models.CharField(max_length = 20)
     apMat= models.CharField(max_length = 20)
