@@ -31,17 +31,18 @@ def RegistroPacienteView(request):
 
 def PacienteView(request):
     return render(request,"paciente/newPacient.html")
+#------Receta Farmacia, FUA, hoja SIS
+def recetaFarmaciaView(request):
 
-def busqueda_Documentos(request):
     if request.method == 'POST':
         searched = request.POST['searched'] #mismo nombre del html
         pacientes = Paciente.objects.filter(dni__contains=searched)
-        return render(request,"paciente/busquedaDoc.html",
+        return render(request,"paciente/recFarmBusqueda.html",
         {'searched':searched,'pacientes':pacientes})
     
     else:
-        return render(request,"paciente/busquedaDoc.html",{})
-
+        return render(request,"paciente/recFarmBusqueda.html",{})
+#-------------------
 def edicionPacienteView(request,dni):
     paciente = Paciente.objects.get(dni=dni)
     return render(request, "paciente/edicionPaciente.html",{"paciente": paciente})

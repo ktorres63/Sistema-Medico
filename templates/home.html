@@ -3,18 +3,20 @@
         <!--position-absolute top-50 start-50 translate-middle-->
 {% block title %} Home {% endblock %}
 {% block content %}
-    <div class="container py=4 text-center">
-        <div class="row m-4 d-flex justify-content-center align-center-items">
-            <div class="col-md-4">
-                <h4>Generar Documentacion por Paciente</h4>
-                <form class="d-flex" role="search" action="{% url 'busquedaDoc' %}" method="POST" >
-                    {% csrf_token %}
-                    <input class="form-control me-2" type="search" placeholder="DNI" name ="searched"
-                     maxlength="8" minlength="8">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
+<div class="main">
+    <div class = 'container-sm'>
+        <br>
+        <form>
+            <div class btn-group>
+                <a class="btn btn-primary" href="#" role="button">FUA</a><br><br>
+                <a class="btn btn-primary" href="#" role="button">Hoja SIS</a><br><br>
+                <a class="btn btn-primary" href="/paciente/RFbusqueda" role="button" >Receta de farmacia</a><br><br>
+                <a class="btn btn-primary" href="#" role="button">Otros...</a><br><br>
+
+                <!--<a href="/home" class="btn btn-success">Siguiente</a>-->
             </div>
-        </div>
+            
+        </form>
     </div>
-     
+</div>
 {% endblock %}
