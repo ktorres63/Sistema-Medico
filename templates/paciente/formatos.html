@@ -2,33 +2,41 @@
 {% block title %} formatos {% endblock %}
 
 {% block content %}
-    <h4 style="color:white">Formatos</h4>
-
+<div class="main">
     <div class = 'container-sm'>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">DNI</th>
+                <th scope="col">Apellido Paterno</th>
+                <th scope="col">Apellido Materno</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">edad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">{{paciente.dni}}</th>
+                <td>{{paciente.apPat}}</td>
+                <td>{{paciente.apMat}}</td>
+                <td>{{paciente.nombre}}</td>
+                <td>{{paciente.edad}}</td>
+              </tr>
+            </tbody>
+          </table>
         <form>
             <div class btn-group>
-                <input type="checkbox" class="btn-check" id="bc1">
-                <label  for="bc1" class="btn btn-outline-success">FUA</label>
-            
-           
-                <input type="checkbox" class="btn-check" id="bc2">
-                <label  for="bc2" class="btn btn-outline-success">Hoja SIS</label>
-          
-          
-                <input type="checkbox" class="btn-check" id="bc3">
-                <label  for="bc3" class="btn btn-outline-success">Receta de farmacia</label>
-          
-           
-                <input type="checkbox" class="btn-check" id="bc4">
-                <label  for="bc4" class="btn btn-outline-success">Otros...</label>
+                <a class="btn btn-primary" href="#" role="button">FUA</a><br><br>
+                <a class="btn btn-primary" href="#" role="button">Hoja SIS</a><br><br>
+                <a class="btn btn-primary" href="#" role="button">Receta de farmacia</a><br><br>
+                <a class="btn btn-primary" href="#" role="button">Otros...</a><br><br>
+
                 
-                <button type="button" class="btn btn-success" style="text-align: center">Siguiente</button>
             </div>
+            <a href="/home" class="btn btn-success">Siguiente</a>
         </form>
     </div>
-    
-    <div class = 'datosMedico'>
-        DATOS DEL MÉDICO
-    </div>
+</div>
+
 {% endblock %}
   

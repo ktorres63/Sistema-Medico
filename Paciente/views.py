@@ -32,9 +32,6 @@ def RegistroPacienteView(request):
 def PacienteView(request):
     return render(request,"paciente/newPacient.html")
 
-def formatosView(request):
-    return render(request,"paciente/formatos.html")
-
 def busqueda_Documentos(request):
     if request.method == 'POST':
         searched = request.POST['searched'] #mismo nombre del html
@@ -86,3 +83,18 @@ def busquedaPaciente (request):
     
     else:
         return render(request,"paciente/busquedaPac.html",{})
+
+def eliminarPaciente(request, dni):
+    paciente = Paciente.objects.get(dni=dni)
+    paciente.delete()
+
+    messages.success(request, "Curso eliminado!")
+    return redirect('/paciente/busquedaPaciente')
+
+def formatosView(request, dni):
+    paciente = Paciente.objects.get(dni=dni)
+
+    return render(
+        request,
+        "paciente/formatos.html",
+        {"paciente":paciente})

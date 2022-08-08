@@ -23,7 +23,7 @@
             <p>No se encontro el paciente</p>
         {% else %}
             {% for p in pacientes %}
-            <a href="#">{{ p.dni }}</a>
+            <a href="{{p.dni}}">{{ p.dni }}</a>
             {{ p.apPat}} {{ p.apMat}}, {{ p.nombre}}    
             {% endfor %}
      
