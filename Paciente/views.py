@@ -31,12 +31,14 @@ def RegistroPacienteView(request):
 
 def PacienteView(request):
     return render(request,"paciente/newPacient.html")
+
 #------Receta Farmacia, FUA, hoja SIS
 def recetaFarmaciaView(request):
 
     if request.method == 'POST':
         searched = request.POST['searched'] #mismo nombre del html
         pacientes = Paciente.objects.filter(dni__contains=searched)
+        
         return render(request,"paciente/recFarmBusqueda.html",
         {'searched':searched,'pacientes':pacientes})
     
@@ -70,7 +72,7 @@ def editarPacienteView(request):
 
     paciente.save()
 
-    messages.success(request, 'Curso Actualizado')
+    messages.success(request, 'Paciente Actualizado')
     return redirect ('/paciente/busquedaPaciente')
    
 def busquedaPaciente (request):

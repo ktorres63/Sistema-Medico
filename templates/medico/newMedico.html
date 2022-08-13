@@ -1,0 +1,51 @@
+{% extends "tempBase.html" %}
+{% block title %} Nuevo Medico {% endblock %}
+{% block content %}
+    <div class="container text-center">
+        <div class="row d-flex justify-content-center align-center-items">
+           <div class="col-md-4">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-dismissible alert-success">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong class="text-dark">{{ message }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <h2>Nuevo Medico</h2>
+                <div class = "card">
+                    <div class = "card-body">
+                        <form  action="registro/" method="POST"> <!--action = "{% url 'registro' %}"-->
+                            {% csrf_token %}
+                            <div class="mb-1">
+                                <label class="form-label">DNI</label>
+                                <input type="text" class="form-control" name="dniMed" minlength="8" maxlength="8">
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-control" name="nombMed" minlength="2" maxlength="20">
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label">Apellido Paterno</label>
+                                <input type="text" class="form-control" name="apellPaMed" minlength="2" maxlength="20">
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label">Apellido Materno</label>
+                                <input type="text" class="form-control" name="apellMaMed" minlength="2" maxlength="20">
+                            </div>
+
+            
+                            <div class="mb-1">
+                                <label class="form-label">Colegio Medico</label>
+                                <input type="text" class="form-control" name="ColMMed"  maxlength="20">
+                            </div>
+                           
+                            <button type="submit" class="btn btn-primary">Crear</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

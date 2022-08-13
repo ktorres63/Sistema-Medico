@@ -1,0 +1,44 @@
+{% extends "tempBase.html" %}
+{% block title %} edicion Medico {% endblock %}
+{% block content %}
+    <div class="container text-center">
+        <div class="row d-flex justify-content-center align-center-items">
+           <div class="col-md-4">
+                <h2>Editar Paciente</h2>
+                <div class = "card">
+                    <div class = "card-body">
+                        <form  action="/medico/editarMedico/" method="POST"> 
+                            {% csrf_token %}
+                            <div class="mb-1">
+                                <label class="form-label">DNI</label>
+                                <input type="text" class="form-control" value="{{ medico.dni }}" name="dniMed" minlength="8" maxlength="8" readonly>
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-control" value="{{ medico.nombre }}" name="nombMed" minlength="2" maxlength="20">
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label">Apellido Paterno</label>
+                                <input type="text" class="form-control" value="{{ medico.apPat }}" name="apellPaMed" minlength="2" maxlength="20">
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label">Apellido Materno</label>
+                                <input type="text" class="form-control" value="{{ medico.apMat }}" name="apellMaMed" minlength="2" maxlength="20">
+                            </div>
+                
+                            <div class="mb-1">
+                                <label class="form-label">ColMedico</label>
+                                <input type="text" class="form-control" value="{{ medico.nColMed }}" name="colMMed" minlength="2" maxlength="30">
+                            </div>
+                           
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
