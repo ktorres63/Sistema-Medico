@@ -1,0 +1,55 @@
+{% extends "tempBase.html" %}
+{% block title %} IPRESS {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="container py=4 text-center">
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-dismissible alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong class="text-dark">{{ message }}</strong>
+            </div>
+            {% endfor %}
+        {% endif %}
+        <div class="row m-4 d-flex justify-content-center align-center-items">
+            <div class="col-md-4">
+                <h4>Buscar IPRESS</h4>
+                <form class="d-flex" role="search" action="{% url 'busquedaIPRESS' %}" method="POST" >
+                    {% csrf_token %}
+                    <input class="form-control me-2" type="search" placeholder="COD,Nompre" name ="searched"
+                     maxlength="20" minlength="3">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="table">      
+        <table class="table table-responsive py-2">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>COD</th>
+                    <th>NOMBRE</th>                    
+                    <th>TIPSEG</th>
+                    <th colspan="2">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in ipress %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{ p.cod }}</td>
+                    <td>{{ p.nombre}}</td>
+                    <td>{{ p.tipSeg}}</td>
+            
+                    <td><a href="edicionIPRESS/{{p.cod}}" class="btn btn-sm btn-info">Editar</a></td>  <!--edicionCurso/{{c.codigo}} -->
+                    <td><a href="eliminarIPRESS/{{p.cod}}" class="btn btn-sm btn-danger btnEliminacion">Eliminar</a></td> <!--eliminarCurso/{{c.codigo}} -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>     
+       
+{% endblock %}
