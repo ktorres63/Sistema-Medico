@@ -1,8 +1,13 @@
 from django.shortcuts import render, redirect
+
 from .models import Paciente
+from Medico.models import *
+from IPRESS.models import *
+
 from django.http import HttpResponse
 from django.contrib import messages
 from django.db.models import Q
+from .utils import render_to_pdf
 
 
 def RegistroPacienteView(request):
@@ -37,13 +42,13 @@ def recetaFarmaciaView(request):
 
     if request.method == 'POST':
         searched = request.POST['searched'] #mismo nombre del html
-        pacientes = Paciente.objects.filter(dni__contains=searched)
-        
+        pacientes = Paciente.objects.filter(dni__contains=searched)     
         return render(request,"paciente/recFarmBusqueda.html",
         {'searched':searched,'pacientes':pacientes})
     
     else:
         return render(request,"paciente/recFarmBusqueda.html",{})
+    
 #-------------------
 def edicionPacienteView(request,dni):
     paciente = Paciente.objects.get(dni=dni)
@@ -96,8 +101,15 @@ def eliminarPaciente(request, dni):
 
 def formatosView(request, dni):
     paciente = Paciente.objects.get(dni=dni)
-
-    return render(
-        request,
-        "paciente/formatos.html",
-        {"paciente":paciente})
+    medico = Medico.objects.get(dni=12345678)
+    ipress = IPRESS.objects.get(cod=34567891)
+    pdf = render_to_pdf("paciente/receta.html", {
+        "Paciente": paciente ,
+        "Medico" : medico ,
+        "IPRESS" : ipress ,        
+    })
+    return HttpResponse(pdf, content_type="application/pdf")   
+    #return render(
+    #    request,
+    #    "paciente/formatos.html",
+    #    {"paciente":paciente})
